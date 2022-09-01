@@ -1,4 +1,5 @@
 //JAWABAN NO 1
+// Buat variabel dengan nama biodata dan tipe data object dengan value dan tipe data
 const biodata = {
     name: "vicko",
     age: 25,
@@ -33,7 +34,7 @@ const biodata = {
     skillName: [
         {
             skillname: "HTML",
-            level: "advanced",
+            level: "beginner",
         },
         {
             skillname: "CSS",
@@ -41,7 +42,7 @@ const biodata = {
         },
         {
             skillname: "JS",
-            level: "advanced",
+            level: "beginner",
         },
         {
             skillname: "Node JS",
@@ -50,38 +51,55 @@ const biodata = {
     ],
     interesInCoding: true,
 };
-
 console.log(biodata);
 
 
 //JAWABN NOMER 2
-let Indonesia = 90;
-let Inggris = 89;
-let Matematika = 80;
+// Buat program yang menghitung rata-rata UN beserta gradenya
+let Indonesia = 80;
+let Inggris = 90;
+let Matematika = 89;
 let IPA = 69;
-let hasil = (Indonesia + Inggris + Matematika + IPA) / 4;
-let grade= "";
-if ( hasil >= 90) {
-    grade = "A";
-    //console.log("A");
-} else if (hasil >= 80 && hasil <= 89) {
-    grade = "B";
-    //console.log("B");
-} else if (hasil >= 70 && hasil <= 79) {
-    grade = "C";
-    //console.log("C");
-} else if (hasil >= 60 && hasil <= 69) {
-    grade = "D";
-    //console.log("D");
-} else if(hasil >= 0 && hasil <= 59) {
-    grade = "E";
-    //console.log("E");
-}
+let hasil="";
+let grade = "";
+
+if (Number.isInteger(Indonesia) && Indonesia >= 0 && Indonesia <= 100) {
+    if (Number.isInteger(Inggris) && Inggris >= 0 && Inggris <= 100) {
+        if (Number.isInteger(Matematika) && Matematika >= 0 && Matematika <= 100) {
+            if (Number.isInteger(IPA) && IPA >= 0 && IPA <= 100) {
+                hasil = (Indonesia + Inggris + Matematika + IPA) / 4;
+                if (hasil <= 100 && hasil >= 0) {
+                    if (hasil >= 90 && hasil <= 100) {
+                        grade = "A";
+                        //console.log("A");
+                    } else if (hasil >= 80 && hasil <= 89) {
+                        grade = "B";
+                        //console.log("B");
+                    } else if (hasil >= 70 && hasil <= 79) {
+                        grade = "C";
+                        //console.log("C");
+                    } else if (hasil >= 60 && hasil <= 69) {
+                        grade = "D";
+                        //console.log("D");
+                    } else if (hasil >= 0 && hasil <= 59) {
+                        grade = "E";
+                        //console.log("E");
+                    }
+                } else console.log("Grade tidak keluar nilai karena Nilai Rata - rata melebih atau kurang dari 0 - 100, harap cek kembali ");
+            } else console.log("Nilai IPA belum dimasukan / bukan angka / nilai bukan dari 0 - 100");
+        } else console.log("Nilai Matematika belum dimasukan / bukan angka / nilai bukan dari 0 - 100 ");
+    } else console.log("Nilai Inggris belum dimasukan / bukan angka / nilai bukan dari 0 - 100 ");
+} else console.log("Nilai Indonesia belum dimasukan / bukan angka / nilai bukan dari 0 - 100 ");
+
 console.log("Rata- rata =" + hasil);
 console.log("Grade =" + grade);
 
 //JAWABAN NOMER 3
-const printSegitiga = 5; 
+// Buatlah program yang memiliki satu variabel dengan nama
+// “printSegitiga” yg berisi tipe data number yang menghasilkan
+// output segitiga terbalik yang berisi angka
+
+const printSegitiga = "lima"; 
 let hasilSegitiga ="";
     if(Number.isInteger(printSegitiga)){ 
         for(let i = 1; i <= printSegitiga; i++){ //ini buat print baris 
@@ -95,6 +113,8 @@ let hasilSegitiga ="";
 
 
 //JAWABAN NOMER 4
+//4A Ubahlah data tersebut menggunakan spread operator
+//4B Ambilah data “street dan city” tersebut menggunakan destructuring
 let data = {
     id: 1,
     name: "Leanne Graham",
@@ -110,16 +130,16 @@ let data = {
     phone: "1-770-736-8031 x56442",
     website: "hildegard.org",
 };
-let newData = {
-    id: 2,
+
+//JAWABAN 4A Ubahlah data tersebut menggunakan spread operator
+data = {
+    ...data,
     name: "vicko maris",
     email: "vicko.maris.s@gmail.com",
-    hobby: "nonton, bulu tangkis, belajar coding"
-};
-//JAWABAN 4A
-let printData = { ...newData };
-console.log(printData);
+    hobby: ["nonton, bulu tangkis, belajar coding"]
+}
+console.log(data)
 
-//JAWABAN 4B
+//JAWABAN 4B Ambilah data “street dan city” tersebut menggunakan destructuring
 let { street, city } = data.address;
-console.log(`${street} ${city}`);
+console.log(`street = ${street}, city = ${city}`);
